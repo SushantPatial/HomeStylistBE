@@ -4,7 +4,7 @@ const secretKey = process.env.SECRET_KEY;
 
 const authenticate = async function(req, res, next) {
   try {
-    const token = await req.cookies.HomeStylist;
+    const token = await req.body.HomeStylist;
     console.log("Homestylist", token);
     const verifyToken = await jwt.verify(token, secretKey);
     console.log(verifyToken);
