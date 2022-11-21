@@ -5,12 +5,12 @@ const secretKey = process.env.SECRET_KEY;
 const authenticate = async function(req, res, next) {
   try {
     const token = await req.cookies.HomeStylist;
-    // console.log(token);
+    console.log("Homestylist", token);
     const verifyToken = await jwt.verify(token, secretKey);
-    // console.log(verifyToken);
+    console.log(verifyToken);
 
     const rootUser = await User.findOne({ _id: verifyToken._id });
-    // console.log(rootUser);
+    console.log(rootUser);
 
     if (!rootUser) {
       throw new Error("User not found");
@@ -23,6 +23,7 @@ const authenticate = async function(req, res, next) {
     next();
 
   } catch (error) {
+    console.log("lol")
     res.status(400).json({
       status: false,
       message: "No token provided",
