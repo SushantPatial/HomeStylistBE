@@ -167,11 +167,12 @@ router.post('/login', [
                 found.token = token;
                 let savedToken = await found.save();
 
-                // console.log(savedToken);
+                console.log(savedToken);
 
                 // Cookie generation
                 res.cookie("HomeStylist", token, {
                   expires: new Date(Date.now() + 3600000), // 60 Mins
+                  httpOnly: false
                 });
 
                 return res.status(201).json({
