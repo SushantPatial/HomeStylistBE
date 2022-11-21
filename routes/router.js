@@ -177,7 +177,8 @@ router.post('/login', [
 
                 return res.status(201).json({
                   "status": true,
-                  "message": "Logged in successfully!"
+                  "message": "Logged in successfully!",
+                  "cookie": token
                 })
               } else {
                 errors.push({msg: "Incorrect Email or Password"});
