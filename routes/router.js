@@ -245,7 +245,7 @@ router.post('/addtocart/:id', authenticate, async function(req, res) {
 })
 
 // Delete items from cart
-router.delete("/delete/:id", authenticate, async function(req, res) {
+router.post("/delete/:id", authenticate, async function(req, res) {
   try {
     const {id} = req.params;
     const userData = await User.findOne({ _id: req.userId });
@@ -272,7 +272,7 @@ router.delete("/delete/:id", authenticate, async function(req, res) {
 })
 
 // Logout 
-router.get("/logout", authenticate, async function(req, res) {
+router.post("/logout", authenticate, async function(req, res) {
   try {
 
     // Deleting current token on logout from database
