@@ -170,10 +170,10 @@ router.post('/login', [
                 console.log(savedToken);
 
                 // Cookie generation
-                res.cookie("HomeStylist", token, {
-                  expires: new Date(Date.now() + 3600000), // 60 Mins
-                  httpOnly: false
-                });
+                // res.cookie("HomeStylist", token, {
+                //   expires: new Date(Date.now() + 3600000), // 60 Mins
+                //   httpOnly: false
+                // });
 
                 return res.status(201).json({
                   "status": true,
@@ -279,9 +279,9 @@ router.post("/logout", authenticate, async function(req, res) {
     req.rootUser.token = "null";
 
     // Cookie expiration
-    await res.cookie("HomeStylist", {
-      expires: Date.now()
-    });
+    // await res.cookie("HomeStylist", {
+    //   expires: Date.now()
+    // });
 
     req.rootUser.save();
 
