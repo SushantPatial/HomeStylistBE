@@ -30,5 +30,5 @@ app.listen(port, function() {
 })
 
 // To store data from productsData.js
-const defaultData = require('./defaultData');
-defaultData();
+// const defaultData = require('./defaultData');
+// defaultData();
